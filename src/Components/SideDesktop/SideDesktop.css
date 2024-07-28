@@ -1,0 +1,32 @@
+.side-desktop{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.titleContainer{
+    height: 20%;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+}
+.titleContainer h1{
+    font-size: 100px;
+    background: linear-gradient( #d55636, #4e2201, #d55636, #4e2201);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.titleContainer h2{
+    font-size: 60px;
+    background: linear-gradient(#4e2201, #d55636, #4e2201);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.botAnswerContainer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}

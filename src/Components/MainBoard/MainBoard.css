@@ -1,0 +1,23 @@
+.main-board-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.board{
+    width: 55%;
+    height: 90%;
+    background-color: rgba(157, 51, 34, 0.649);
+    padding: 10px;
+    border-radius: 1%;
+    box-shadow: 10px 10px 8px rgba(196, 120, 107, 0.649);
+}
+.Rows-Container{
+    display: grid;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    margin: auto;
+}
