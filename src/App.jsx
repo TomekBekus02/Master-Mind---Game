@@ -5,13 +5,13 @@ import data from './Components/source/data'
 import './App.css'
 
 function App() {
-  const [round, setRound] = useState(0); // show and set current round 1-10
-  const handleRound = () => setRound(i => i+1); // function that handles rounds
+  const [round, setRound] = useState(1); // show and set current round 1-10
+  const handleRound = () => setRound(round => round+1); // function that handles rounds
   const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; // possible colors in this game
   return (
     <div className="appWindow">
-      <MainBoard currentRound={round}/>
-      <SideDesktop currentRound={round}/>
+      <MainBoard currentRound={round} />
+      <SideDesktop currentRound={round} handleRound={handleRound} colorsPool={colors}/>
     </div>
   )
 }
