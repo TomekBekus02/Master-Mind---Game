@@ -1,13 +1,19 @@
-import './BoardRow.css'
+import { useContext } from 'react'
+import { GameContex } from '../../source/gameContex'
 import ColorsAccuracy from './ColorsAccuracy/ColorsAccuracy'
 import ColorsDecode from './ColorsDecode/ColorsDecode'
-import dataColor from '/src/Components/source/data'
+import './BoardRow.css'
+// import dataColor from '/src/Components/source/data'
 
-export default function BoardRow({id, round}){
+
+
+export default function BoardRow({id}){
+    const {dataGame, IdRound} = useContext(GameContex);
+
     return (
-        <div className={`RowContainer ${id==dataColor[round-1].round ? 'active' : null}`}>
+        <div className={`RowContainer ${id==dataGame[IdRound].round ? 'active' : null}`}>
             <ColorsAccuracy />
-            <ColorsDecode id={id} round={round}/>
+            <ColorsDecode id={id}/>
         </div>
     )
 }
