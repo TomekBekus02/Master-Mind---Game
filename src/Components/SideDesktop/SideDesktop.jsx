@@ -2,6 +2,7 @@
 import BotAnswer from './BotAnswer/BotAnswer'
 import StartButton from './StartButton/StartButton'
 import RestartButton from './RestartButton/RestartButton'
+import SaveRoundButton from './SaveRoundButton/SaveRoundButton'
 import './SideDesktop.css'
 
 export default function SideDesktop(){
@@ -20,6 +21,9 @@ export default function SideDesktop(){
                 <div className="buttonsContainer">
                     <StartButton/>
                     <RestartButton/>
+                </div>
+                <div className="saveRoundContainer">
+                    <SaveRoundButton/>
                 </div>
 
 

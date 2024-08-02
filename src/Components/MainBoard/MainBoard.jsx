@@ -6,7 +6,6 @@ export default function MainBoard({currentRound}){
         <div className="main-board-Container">
             <div className="board">
                 <div className="Rows-Container">
-                    <BoardRow id={0}/>
                     <BoardRow id={1}/>
                     <BoardRow id={2}/>
                     <BoardRow id={3}/>
@@ -16,6 +15,7 @@ export default function MainBoard({currentRound}){
                     <BoardRow id={7}/>
                     <BoardRow id={8}/>
                     <BoardRow id={9}/>
+                    <BoardRow id={10}/>
                 </div>
             </div>
         </div>

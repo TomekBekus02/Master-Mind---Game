@@ -6,8 +6,6 @@ export default function RestartButton(){
     const {IdRound} = useContext(GameContex);
 
     return (
-        <div>
-            <button className="restart-button">Restart Game</button>
-        </div>
+        <button className="restart-button">Restart Game</button>   
     )
 }

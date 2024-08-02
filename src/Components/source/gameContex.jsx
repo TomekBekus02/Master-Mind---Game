@@ -7,7 +7,7 @@ export const GameProvider = ({children}) => {
     const [dataGame, setDataGame] = useState(data); // dataGame from 
     const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; // possible colors in this game
 
-    const [IdRound, setIdRound] = useState(0); // show and set current round 1-10
+    const [IdRound, setIdRound] = useState(2); // show and set current round 1-10
     const handleRound = () => setIdRound(prevRound => (prevRound < 10 ? prevRound + 1 : prevRound)); // function that handles rounds
 
 

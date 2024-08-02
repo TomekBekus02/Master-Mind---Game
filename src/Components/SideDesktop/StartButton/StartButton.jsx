@@ -5,9 +5,7 @@ import './StartButton.css'
 export default function StartButton(){
     const {IdRound} = useContext(GameContex);
 
-    return(
-        <div>  
-            <button className="start-button">Start Button</button>
-        </div>
+    return(  
+        <button className="start-button">Start Button</button>
     )
 }
