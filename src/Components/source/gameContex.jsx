@@ -11,15 +11,22 @@ export const GameProvider = ({children}) => {
     const handleRound = () => setIdRound(prevRound => (prevRound < 10 ? prevRound + 1 : prevRound)); // function that handles rounds
 
 
-    const [endGame, setEndGame] = useState(true); //value if game should end or not
+    const [endGame, setEndGame] = useState(false); //value if game has started or finished
     const handleEndGame = () => setEndGame(!endGame); //sets status of the game
 
+    const [startGame, setStartGame] = useState(false); //value if game has started or finished
+    const handleStartGame = () => setStartGame(!startGame); //sets status of the game
+
     const [answer, setAnswer] = useState([]); // array of 4 generated colors to decode
-    const addAnswer = newAnswer => setAnswer([...answer, newAnswer]); // adding colors to array
+    const addAnswer = newAnswer => setAnswer(prevAnswers => [...prevAnswers, newAnswer]); // adding colors to array
 
 
     return (
-        <GameContex.Provider value={{IdRound, handleRound, colors, dataGame, addAnswer, answer, handleEndGame, endGame}}>
+        <GameContex.Provider value={
+            {   
+                handleRound, handleStartGame, handleEndGame, addAnswer, setIdRound, setAnswer,           //functions
+                IdRound, colors, dataGame, answer, endGame, startGame               // variables
+            }}>
             {children}
         </GameContex.Provider>
     )

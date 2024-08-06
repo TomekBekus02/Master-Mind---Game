@@ -4,16 +4,8 @@ import { useContext, useEffect } from 'react';
 
 export default function BotAnswer()
 {
-    const {round, handleRound, colors, addAnswer, answer, endGame} = useContext(GameContex);
+    const {colors, answer, endGame} = useContext(GameContex);
 
-    const randomNumber = () => {return Math.floor(Math.random() * colors.length)};
-    
-    useEffect(() =>{
-        for(let i=0; i < 4; i++){
-            addAnswer(randomNumber());
-        }
-
-    }, []);
 
     return(
         <div className="resultContainer">
