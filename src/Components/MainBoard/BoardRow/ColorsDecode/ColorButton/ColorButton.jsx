@@ -16,7 +16,11 @@ export default function ColorButton({id, buttonNr}){
     return(
         <button 
             className={`color-button ${activationCondition ? null : 'disabled'}`}
-            style={activationCondition && fourDecodedColors[buttonNr] != 'undefined' ? {backgroundColor: colors[fourDecodedColors[buttonNr]]} : null} 
+            style={dataGame[id-1].saved 
+                    ? {backgroundColor: dataGame[id-1].colors[buttonNr-1]}
+                    : activationCondition && fourDecodedColors[buttonNr] != 'undefined' 
+                        ? {backgroundColor: colors[fourDecodedColors[buttonNr]]}
+                        : null} 
             onClick={activationCondition ? () => handleColorsDecode(buttonNr) : null}
         ></button> 
     )

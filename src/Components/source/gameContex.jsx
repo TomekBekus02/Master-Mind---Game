@@ -6,7 +6,7 @@ export const GameContex = createContext();
 export const GameProvider = ({children}) => {
     const [dataGame, setDataGame] = useState(data); // dataGame from data.js
     const updateDataGame = () => {//updates Data Game in data.js file
-
+        
     }
 
     const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; // possible colors in this game
