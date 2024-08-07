@@ -1,0 +1,13 @@
+.ColorsPoolContainer{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(196, 114, 101, 0.649); 
+}
+.colors-pool{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 0 20px 0 20px;
+    background-color: rgba(196, 114, 101, 0.649); 
+}

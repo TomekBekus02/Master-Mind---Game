@@ -11,7 +11,9 @@ export default function BoardRow({id}){
     const {dataGame, IdRound} = useContext(GameContex);
 
     return (
-        <div className={`RowContainer ${id==dataGame[IdRound>0 ? IdRound-1 : IdRound].round && IdRound != 0 ? 'active' : null}`}>
+        <div 
+        className={`RowContainer ${id==dataGame[IdRound > 0 ? IdRound-1 : IdRound].round 
+                                 && IdRound != 0 ? 'active' : null}`}>
             <ColorsAccuracy />
             <ColorsDecode id={id}/>
         </div>

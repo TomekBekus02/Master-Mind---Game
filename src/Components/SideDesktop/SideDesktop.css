@@ -34,27 +34,17 @@
     width: 70%;
     font-size: 20px;
 }
-button{
-    width: 180px;
-    padding: 15px;
-    font-size: 20px;
-    margin: 10px;
-    border-radius: 30px;
-    cursor: pointer;
-}
-.gameStatusContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-.buttonsContainer{
-    display: flex;
-}
 .botAnswerContainer{
     display: flex;
     align-items: flex-end;
     justify-content: center;
     height: 100%;
     width: 100%;
+}
+.PossibleColorsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(196, 114, 101, 0.649); 
 }

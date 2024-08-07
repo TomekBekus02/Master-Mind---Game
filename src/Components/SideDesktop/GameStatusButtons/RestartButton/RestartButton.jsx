@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { GameContex } from '../../source/gameContex'
+import { GameContex } from '../../../source/gameContex';
 import './RestartButton.css'
 
 export default function RestartButton(){
-    const {addAnswer, handleEndGame, handleStartGame, setIdRound, setAnswer} = useContext(GameContex);
+    const {addAnswer, handleEndGame, setIdRound, setAnswer, startGame, setActiveDecode} = useContext(GameContex);
     function restartingGame(){
         setIdRound(1);
         setAnswer([]);
@@ -12,10 +12,13 @@ export default function RestartButton(){
             newAnswers.push(randomNumber());
         }
         newAnswers.forEach(answer => addAnswer(answer));
-        handleStartGame();
         handleEndGame();
+        setActiveDecode();
     }
     return (
-        <button onClick={() => restartingGame()} className="restart-button">Restart Game</button>   
+        <button 
+            onClick={startGame ? () => restartingGame() : null} 
+            className="restart-button"
+        >Restart Game</button>   
     )
 }

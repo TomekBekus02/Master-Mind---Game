@@ -1,22 +1,15 @@
-import { useContext } from 'react'
-import { GameContex } from '../../../source/gameContex'
+import ColorButton from './ColorButton/ColorButton';
 // import dataColor from '/src/Components/source/data'
 import './ColorsDecode.css'
 
 export default function ColorsDecode({id}){
 
-    const {dataGame, IdRound} = useContext(GameContex);
-    const activationCondition = id==dataGame[IdRound > 0 ? IdRound-1 : IdRound].round && IdRound != 0
-    function handleColorsDecode(){
-        
-    }
-
     return (
         <div className="Colors-container">
-            <button className={`color-button ${activationCondition ? null : 'disabled'}`} onClick={activationCondition ? () => handleColorsDecode(1) : null}></button>
-            <button className={`color-button ${activationCondition ? null : 'disabled'}`} onClick={activationCondition ? () => handleColorsDecode(2) : null}></button>
-            <button className={`color-button ${activationCondition ? null : 'disabled'}`} onClick={activationCondition ? () => handleColorsDecode(3) : null}></button>
-            <button className={`color-button ${activationCondition ? null : 'disabled'}`} onClick={activationCondition ? () => handleColorsDecode(4) : null}></button>
+            <ColorButton id={id} buttonNr={1}/>
+            <ColorButton id={id} buttonNr={2}/>
+            <ColorButton id={id} buttonNr={3}/>
+            <ColorButton id={id} buttonNr={4}/>
         </div>
     )
 }

@@ -16,3 +16,6 @@
     pointer-events: none;
     cursor: not-allowed;
 }
+.active-button{
+    background-color: #a98e8e;
+}

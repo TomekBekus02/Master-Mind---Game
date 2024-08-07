@@ -1,11 +1,12 @@
-
+import { useContext } from 'react'
+import { GameContex } from '../source/gameContex'
 import BotAnswer from './BotAnswer/BotAnswer'
-import StartButton from './StartButton/StartButton'
-import RestartButton from './RestartButton/RestartButton'
-import SaveRoundButton from './SaveRoundButton/SaveRoundButton'
+import GameStatusButtons from './GameStatusButtons/GameStatusButtons'
+import PossibleColors from './PossibleColors/PossibleColors'
 import './SideDesktop.css'
 
 export default function SideDesktop(){
+    const {activeDecode} = useContext(GameContex);
     return (
         <div className="side-desktop">
             <div className="titleContainer">
@@ -14,20 +15,16 @@ export default function SideDesktop(){
             </div>
             <div className="welcomeContainer">
                 <h1>Welcome to Master Mind</h1>
-                <h3>To start click 'Start Game' button, if you want restart game, please click 'Restart Game' button. good luck :)</h3>
+                <h3>To start click 'Start Game' button, if you want restart game, please click 'Restart Game' button. good luck</h3>
             </div>
-            <div className="gameStatusContainer">
-                <h3>Game Status</h3>
-                <div className="buttonsContainer">
-                    <StartButton/>
-                    <RestartButton/>
-                </div>
-                <div className="saveRoundContainer">
-                    <SaveRoundButton/>
-                </div>
+            <GameStatusButtons/>
 
+            {
+                activeDecode
+                ? <div className="PossibleColorsContainer"> <PossibleColors/> </div>
+                : null
+            }
 
-            </div>
             <div className="botAnswerContainer">
                 <BotAnswer />
             </div>

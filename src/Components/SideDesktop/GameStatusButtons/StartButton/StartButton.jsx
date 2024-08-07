@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { GameContex } from '../../source/gameContex'
+import { GameContex } from '../../../source/gameContex'
 import './StartButton.css'
 
 export default function StartButton(){
@@ -16,6 +16,9 @@ export default function StartButton(){
         handleStartGame();
     }
     return(  
-        <button onClick={!startGame ? () => gameLaunching() : null} className="start-button">Start Button</button>
+        <button 
+            onClick={!startGame ? () => gameLaunching() : null} 
+            className="start-button"
+        >Start Button</button>
     )
 }
