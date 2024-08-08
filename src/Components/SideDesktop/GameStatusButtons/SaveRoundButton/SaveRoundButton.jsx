@@ -3,10 +3,11 @@ import { GameContex } from '../../../source/gameContex';
 import './SaveRoundButton.css';
 
 export default function SaveButton(){
-    const {} = useContext(GameContex);
+    const {abledSaveButton} = useContext(GameContex);
+
     return(
         <button 
-            className="saveRoundButton"
+            className={`saveRoundButton ${abledSaveButton ? null : 'disabled'}`}//dostepny po wypelnienu 4 wartosci kolorem
         >Save round</button>
     )
 }

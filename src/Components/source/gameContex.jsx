@@ -6,7 +6,9 @@ export const GameContex = createContext();
 export const GameProvider = ({children}) => {
     const [dataGame, setDataGame] = useState(data); // dataGame from data.js
     const updateDataGame = () => {//updates Data Game in data.js file
-        
+        setDataGame(prevData => {
+
+        })
     }
 
     const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; // possible colors in this game
@@ -21,6 +23,7 @@ export const GameProvider = ({children}) => {
     };
 
     const [currentButton, setCurrentButton] = useState(1); //current color Decode to sets value from pool of colors
+    const [currentIdRow, setcurrentIdRow] = useState(1); //current row to sets value for full colors row
 
     const [activeDecode, setActiveDecode] = useState(false); // shows container with possible colors to decode
     const handleActiveDecode = (condition) => setActiveDecode(condition); 
@@ -37,14 +40,16 @@ export const GameProvider = ({children}) => {
     const [answer, setAnswer] = useState([]); // array of 4 generated colors to decode
     const addAnswer = newAnswer => setAnswer(prevAnswers => [...prevAnswers, newAnswer]); // adding colors to array
 
+    const [abledSaveButton, setAbledSaveButton] = useState(false);
 
     return (
         <GameContex.Provider value={
             {   
-                handleRound, handleStartGame, handleEndGame, addAnswer, setCurrentButton,             
-                setIdRound, setAnswer, handleActiveDecode, updatefourDecodedColors,                 
+                handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, 
+                setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, 
+                setcurrentIdRow, setAbledSaveButton,              
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, 
-                currentButton, fourDecodedColors                
+                currentButton, fourDecodedColors, currentIdRow, abledSaveButton                
             }}>
             {children}
         </GameContex.Provider>
