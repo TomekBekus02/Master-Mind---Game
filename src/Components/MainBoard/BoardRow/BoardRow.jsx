@@ -12,8 +12,7 @@ export default function BoardRow({id}){
 
     return (
         <div 
-        className={`RowContainer ${id==dataGame[IdRound > 0 ? IdRound-1 : IdRound].round 
-                                 && IdRound != 0 ? 'active' : null}`}>
+        className={`RowContainer ${id==IdRound && IdRound != 0 ? 'active' : null}`}>
             <ColorsAccuracy />
             <ColorsDecode id={id}/>
         </div>

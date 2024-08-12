@@ -5,11 +5,6 @@ export const GameContex = createContext();
 
 export const GameProvider = ({children}) => {
     const [dataGame, setDataGame] = useState(data); // dataGame from data.js
-    const updateDataGame = () => {//updates Data Game in data.js file
-        setDataGame(prevData => {
-
-        })
-    }
 
     const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; // possible colors in this game
 
@@ -42,12 +37,27 @@ export const GameProvider = ({children}) => {
 
     const [abledSaveButton, setAbledSaveButton] = useState(false);
 
+    const updateDataGame = (IdRound, fourDecodedColors, colors ) => {//updates Data Game in data.js file
+         setDataGame(prevData => {
+            return prevData.map(item =>
+                item.round === IdRound
+                ? {...item, 
+                    saved: true, 
+                    colors: item.colors.map((itemColor, index) => 
+                        fourDecodedColors[index] !== undefined
+                    ? colors[fourDecodedColors[index]]
+                    : itemColor 
+                )}
+                : item
+            )
+        })
+    }
     return (
         <GameContex.Provider value={
             {   
                 handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, 
                 setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, 
-                setcurrentIdRow, setAbledSaveButton,              
+                setcurrentIdRow, setAbledSaveButton, updateDataGame,             
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, 
                 currentButton, fourDecodedColors, currentIdRow, abledSaveButton                
             }}>
