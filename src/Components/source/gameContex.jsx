@@ -57,7 +57,7 @@ export const GameProvider = ({children}) => {
             {   
                 handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, 
                 setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, 
-                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame,          
+                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode,       
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, 
                 currentButton, fourDecodedColors, currentIdRow, abledSaveButton                
             }}>

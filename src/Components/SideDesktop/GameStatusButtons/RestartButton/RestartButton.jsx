@@ -3,7 +3,7 @@ import { GameContex } from '../../../source/gameContex'
 import './RestartButton.css'
 import data from '../../../source/data'
 
-export default function RestartButton(){//po nacisnieciu restart button gra sie restartuje, ale coded answer sie nie wczytuje
+export default function RestartButton(){
     const {addAnswer, handleEndGame, setIdRound, setDataGame, colors, 
            setAnswer, startGame, setActiveDecode, setFourDecodedColors, setCurrentButton} = useContext(GameContex);
     const randomNumber = () => {return Math.floor(Math.random() * colors.length)};
@@ -23,7 +23,7 @@ export default function RestartButton(){//po nacisnieciu restart button gra sie 
         setFourDecodedColors(['','','','']);
         setCurrentButton(0);
         await gameLaunching();
-        handleEndGame();
+        //handleEndGame(); //while production endGame setting are off
         setActiveDecode(false);
     }
     return (

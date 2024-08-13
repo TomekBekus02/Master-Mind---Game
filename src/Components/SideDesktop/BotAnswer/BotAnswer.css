@@ -2,8 +2,8 @@
     display: grid;
     grid-template-rows: 30% 70%;
     background-color: rgba(157, 51, 34, 0.649);
-    height: 30%;
-    width: 90%;
+    height: 50%;
+    width: 80%;
     margin-bottom: 50px;
     border-radius: 30px;
     box-shadow: 10px 10px 16px rgba(195, 71, 53, 0.542);
@@ -33,6 +33,6 @@
     height: 70px;
     border-radius: 50%;
     border: 1px solid black;
-    margin: 0 20px 0 20px;
+    margin: 15px;
     background-color: rgba(196, 114, 101, 0.649); 
 }

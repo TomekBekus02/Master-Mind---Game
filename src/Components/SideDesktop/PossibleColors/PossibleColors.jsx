@@ -4,8 +4,8 @@ import './PossibleColors.css'
 
 export default function PossibleColors(){
     const {colors, updatefourDecodedColors, currentButton} = useContext(GameContex);
-    const handlePossibleColors = (currentButton, index) => {
-        updatefourDecodedColors(currentButton, index);
+    const handlePossibleColors = async(currentButton, index) => {
+       await updatefourDecodedColors(currentButton, index);
     }
     return(
         <>
