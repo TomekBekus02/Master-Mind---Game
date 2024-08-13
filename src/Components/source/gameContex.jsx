@@ -17,7 +17,7 @@ export const GameProvider = ({children}) => {
         })
     };
 
-    const [currentButton, setCurrentButton] = useState(1); //current color Decode to sets value from pool of colors
+    const [currentButton, setCurrentButton] = useState(0); //current color Decode to sets value from pool of colors
     const [currentIdRow, setcurrentIdRow] = useState(1); //current row to sets value for full colors row
 
     const [activeDecode, setActiveDecode] = useState(false); // shows container with possible colors to decode
@@ -57,7 +57,7 @@ export const GameProvider = ({children}) => {
             {   
                 handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, 
                 setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, 
-                setcurrentIdRow, setAbledSaveButton, updateDataGame,             
+                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame,          
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, 
                 currentButton, fourDecodedColors, currentIdRow, abledSaveButton                
             }}>

@@ -3,12 +3,13 @@ import { GameContex } from '../../../source/gameContex';
 import './SaveRoundButton.css';
 
 export default function SaveButton(){
-    const {dataGame, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, setFourDecodedColors} = useContext(GameContex);
+    const {dataGame, setCurrentButton, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, setFourDecodedColors} = useContext(GameContex);
 
     async function handeSaveRound(IdRound, fourDecodedColors, colors){
         await updateDataGame(IdRound, fourDecodedColors, colors);
         handleRound();
         setFourDecodedColors(['','','','']);
+        setCurrentButton(0);
     }
     return(
         <button 

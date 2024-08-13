@@ -17,5 +17,15 @@
     cursor: not-allowed;
 }
 .active-button{
-    background-color: #a98e8e;
+    background-color: rgba(168, 98, 87, 0.786);
+    animation: blinking 1s infinite alternate; 
+
+}
+@keyframes blinking {
+    0%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
 }

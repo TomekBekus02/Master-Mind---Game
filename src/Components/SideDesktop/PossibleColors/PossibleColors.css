@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-around;
     background-color: rgba(196, 114, 101, 0.649); 
+    padding: 10px;
 }
 .colors-pool{
     width: 70px;

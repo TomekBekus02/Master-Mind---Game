@@ -3,7 +3,7 @@ import { GameContex } from '../../../../source/gameContex'
 import './ColorButton.css'
 
 export default function ColorButton({id, buttonNr}){
-    const {dataGame, IdRound, handleActiveDecode, setCurrentButton, fourDecodedColors, colors, setcurrentIdRow} = useContext(GameContex);
+    const {dataGame, IdRound, handleActiveDecode, setCurrentButton, fourDecodedColors, colors, setcurrentIdRow, currentButton} = useContext(GameContex);
 
     const activationCondition = id==IdRound && IdRound != 0;
     // const [buttonClicked, setButtonClicked] = useState(false);
@@ -17,7 +17,13 @@ export default function ColorButton({id, buttonNr}){
     return(
         
         <button 
-            className={`color-button ${activationCondition ? null : 'disabled'}`}
+            className={`color-button 
+                ${activationCondition 
+                ? buttonNr == currentButton 
+                    ? 'active-button'
+                    : null
+                : 'disabled'}`
+            }
             style={dataGame[id-1].saved 
                     ? {backgroundColor: dataGame[id-1].colors[buttonNr]}
                     : activationCondition && fourDecodedColors[buttonNr] != 'undefined' 
