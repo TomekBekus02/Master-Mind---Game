@@ -38,24 +38,24 @@ export const GameProvider = ({children}) => {
     const [abledSaveButton, setAbledSaveButton] = useState(false);
 
     const [isUserColorsChecked, setIsUserColorsChecked] = useState([false, false, false, false]); // helps checking user and coded answer
-    const handleUserColorsChecked = (index) => {
-        setIsUserColorsChecked(prevchecked => {
-            const newArrayCheckedColor = [...prevchecked];
-            newArrayCheckedColor[index] = true;
-            return newArrayCheckedColor;
-        })
-    }
+    // const handleUserColorsChecked = (index) => {
+    //     setIsUserColorsChecked(prevchecked => {
+    //         const newArrayCheckedColor = [...prevchecked];
+    //         newArrayCheckedColor[index] = true;
+    //         return newArrayCheckedColor;
+    //     })
+    // }
         
     //0 - wrong color && place || 1 - correct color but wrong place || 2 - correct color && correct place
     const [colorAccuracy, setColorAccuracy] = useState([]); 
-    const handleColorAccuracy = (AccuracyNumber) => {
-        setColorAccuracy(preColorAccuracy => {
-            const Arrayaccuracy = [...preColorAccuracy]; 
-            Arrayaccuracy.push(AccuracyNumber); // 0/1/2
-            Arrayaccuracy.sort((a, b) => b-a); // sorting 2 --> 0
-            return Arrayaccuracy;
-        })
-    }
+    // const handleColorAccuracy = (AccuracyNumber) => {
+    //     setColorAccuracy(preColorAccuracy => {
+    //         const Arrayaccuracy = [...preColorAccuracy]; 
+    //         Arrayaccuracy.push(AccuracyNumber); // 0/1/2
+    //         Arrayaccuracy.sort((a, b) => b-a); // sorting 2 --> 0
+    //         return Arrayaccuracy;
+    //     })
+    // }
     
 
     const updateDataGame = (IdRound, fourDecodedColors, colors ) => {//updates Data Game in data.js file
@@ -76,9 +76,9 @@ export const GameProvider = ({children}) => {
     return (
         <GameContex.Provider value={
             {   
-                handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, handleUserColorsChecked, setColorAccuracy,
+                handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, setColorAccuracy,
                 setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, setIsUserColorsChecked,
-                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode, handleColorAccuracy,       
+                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode,       
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, colorAccuracy, 
                 currentButton, fourDecodedColors, currentIdRow, abledSaveButton, isUserColorsChecked                
             }}>
