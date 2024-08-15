@@ -13,7 +13,7 @@ export default function BoardRow({id}){
     return (
         <div 
         className={`RowContainer ${id==IdRound && IdRound != 0 ? 'active' : null}`}>
-            <ColorsAccuracy />
+            <ColorsAccuracy id={id}/>
             <ColorsDecode id={id}/>
         </div>
     )

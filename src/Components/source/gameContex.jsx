@@ -47,7 +47,7 @@ export const GameProvider = ({children}) => {
     // }
         
     //0 - wrong color && place || 1 - correct color but wrong place || 2 - correct color && correct place
-    const [colorAccuracy, setColorAccuracy] = useState([]); 
+    const [colorAccuracy, setColorAccuracy] = useState([0,0,0,0]); 
     // const handleColorAccuracy = (AccuracyNumber) => {
     //     setColorAccuracy(preColorAccuracy => {
     //         const Arrayaccuracy = [...preColorAccuracy]; 
@@ -58,12 +58,15 @@ export const GameProvider = ({children}) => {
     // }
     
 
-    const updateDataGame = (IdRound, fourDecodedColors, colors ) => {//updates Data Game in data.js file
+    const updateDataGame = (IdRound, fourDecodedColors, colors, colorAccuracy ) => {//updates Data Game in data.js file
          setDataGame(prevData => {
             return prevData.map(item =>
                 item.round === IdRound
                 ? {...item, 
                     saved: true, 
+                    accuracy: item.accuracy.map((itemAccuracy, index) =>
+                        colorAccuracy[index]
+                    ),
                     colors: item.colors.map((itemColor, index) => 
                         fourDecodedColors[index] !== undefined
                     ? colors[fourDecodedColors[index]]

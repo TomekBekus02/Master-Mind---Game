@@ -9,27 +9,29 @@ export default function SaveButton(){
     async function handleGameProgress(){
         setIsUserColorsChecked([false, false, false, false]);
         const updatedCheckedColors = [...isUserColorsChecked];
+        updatedCheckedColors.map(item => console.log(`${item},`))
         const updatedColorsAccuracy = [...colorAccuracy];
         for(let i = 0; i < 4; i++){
             for(let j = 0; j < 4; j++){
                 console.log(`[i:${i}][j:${j}] AI: ${answer[i]} user: ${fourDecodedColors[j]}`);
-                console.log(`false/true == ${isUserColorsChecked[j]}`);
-                if(isUserColorsChecked[j] === false){
+                console.log(`false/true == ${updatedCheckedColors[j]}`);
+                if(updatedCheckedColors[j] === false){
                     if(answer[i] == fourDecodedColors[j] && i==j){
-                        updatedColorsAccuracy.push(2);
+                        updatedColorsAccuracy[i] = 2;
+                        updatedCheckedColors[j] = true;
                         console.log(`2`);
                         break;
                     }
                     else if(answer[i] == fourDecodedColors[j]){
-                        updatedColorsAccuracy.push(1);  
+                        updatedColorsAccuracy[i] = 1;  
+                        updatedCheckedColors[j] = true;
                         console.log('1'); 
                         break; 
                     }
                     if(j==3){
-                        updatedColorsAccuracy.push(0);
+                        updatedColorsAccuracy[i] = 0;
                         console.log('0');
                     }
-                    updatedCheckedColors[j] = true;
                 }
             }
         }
@@ -43,8 +45,8 @@ export default function SaveButton(){
 
     }
 
-    async function handeSaveRound(IdRound, fourDecodedColors, colors){
-        await updateDataGame(IdRound, fourDecodedColors, colors);
+    async function handeSaveRound(){
+        await updateDataGame(IdRound, fourDecodedColors, colors, colorAccuracy);
         handleRound();
         await handleGameProgress();
         setFourDecodedColors(['','','','']);
@@ -53,7 +55,7 @@ export default function SaveButton(){
     return(
         <button 
             className={`saveRoundButton`}//dostepny po wypelnienu 4 wartosci kolorem
-            onClick={() => handeSaveRound(IdRound, fourDecodedColors, colors)}
+            onClick={() => handeSaveRound()}
         >Save round</button>
     )
 }

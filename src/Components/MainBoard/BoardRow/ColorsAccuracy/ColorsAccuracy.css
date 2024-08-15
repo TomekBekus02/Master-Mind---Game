@@ -1,20 +1,24 @@
 .accuracy-container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr, 1fr);
+    justify-content: center;
     border: 1px solid black;
-    margin: 5px;
+    margin: 4px;
     border-radius: 15px;
 }
 .row-container{
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    grid-template-rows: 1fr 1fr;
+    column-gap: 7px;
+    row-gap: 2px;
 }
 .accuracy{
-    width: 27px;
-    height: 27px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     border: 1px solid black;
     background-color: rgba(196, 114, 101, 0.649);
+    margin: 0 5px;
 }
