@@ -7,41 +7,41 @@ export default function SaveButton(){
            setFourDecodedColors, answer, isUserColorsChecked, setIsUserColorsChecked} = useContext(GameContex);
 
     async function handleGameProgress(){
-        setIsUserColorsChecked([false, false, false, false]);
-        const updatedCheckedColors = [...isUserColorsChecked];
+        const updatedCheckedColors = [false, false, false, false];
         updatedCheckedColors.map(item => console.log(`${item},`))
-        const updatedColorsAccuracy = [...colorAccuracy];
+        const updatedColorsAccuracy = [0,0,0,0];
+        let tempAccuracy = 0;
+        let tempJ = 4;
         for(let i = 0; i < 4; i++){
+            tempAccuracy = 0;
+            tempJ = 4;
             for(let j = 0; j < 4; j++){
-                console.log(`[i:${i}][j:${j}] AI: ${answer[i]} user: ${fourDecodedColors[j]}`);
-                console.log(`false/true == ${updatedCheckedColors[j]}`);
                 if(updatedCheckedColors[j] === false){
-                    if(answer[i] == fourDecodedColors[j] && i==j){
-                        updatedColorsAccuracy[i] = 2;
-                        updatedCheckedColors[j] = true;
+                    console.log(`[i:${i}][j:${j}] AI: ${answer[i]} user: ${fourDecodedColors[j]}`);
+                    console.log(`false/true == ${updatedCheckedColors[j]}`);
+                    if(fourDecodedColors[j] !== '' && answer[i] == fourDecodedColors[j] && i==j){
+                        tempJ = j;
+                        tempAccuracy = 2;
                         console.log(`2`);
                         break;
                     }
-                    else if(answer[i] == fourDecodedColors[j]){
-                        updatedColorsAccuracy[i] = 1;  
-                        updatedCheckedColors[j] = true;
+                    else if(fourDecodedColors[j] !== '' && answer[i] == fourDecodedColors[j]){
+                        tempAccuracy = 1;
+                        tempJ = j;
                         console.log('1'); 
-                        break; 
-                    }
-                    if(j==3){
-                        updatedColorsAccuracy[i] = 0;
-                        console.log('0');
                     }
                 }
             }
+            updatedColorsAccuracy[i] = tempAccuracy;  
+            tempJ !== 4 ? updatedCheckedColors[tempJ] = true : null
         }
         updatedColorsAccuracy.sort((a,b)=>b-a);
         await setColorAccuracy(updatedColorsAccuracy);
         await setIsUserColorsChecked(updatedCheckedColors);
-        console.log("tablica sprawdzenia");
-        updatedCheckedColors.map(item => console.log(item));
-        console.log("tabela accuricy");
-        updatedColorsAccuracy.map(item => console.log(item));
+        //console.log("tablica sprawdzenia");
+       // updatedCheckedColors.map(item => console.log(item));
+        //console.log("tabela accuricy");
+        //updatedColorsAccuracy.map(item => console.log(item));
 
     }
 
