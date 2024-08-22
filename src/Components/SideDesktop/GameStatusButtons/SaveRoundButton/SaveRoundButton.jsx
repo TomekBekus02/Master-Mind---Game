@@ -4,14 +4,10 @@ import './SaveRoundButton.css';
 
 export default function SaveButton(){
     const {setCurrentButton, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, colorAccuracy, setColorAccuracy,
-           setFourDecodedColors, answer, isUserColorsChecked, setIsUserColorsChecked, dataGame} = useContext(GameContex);
+           setFourDecodedColors, answer, isUserColorsChecked, setIsUserColorsChecked} = useContext(GameContex);
 
     async function handleGameProgress(){
         const updatedCheckedColors = [false, false, false, false];
-        console.log(`#1: ${dataGame[0].accuracy.map(item => item)}`);
-        console.log(`#2 ${dataGame[1].accuracy.map(item => item)}`);
-        console.log(`#3 ${dataGame[2].accuracy.map(item => item)}`);
-        console.log(`#4 ${dataGame[3].accuracy.map(item => item)}`);
         //updatedCheckedColors.map(item => console.log(`${item},`))
         const updatedColorsAccuracy = [0,0,0,0];
         let tempAccuracy = 0;
@@ -42,8 +38,8 @@ export default function SaveButton(){
         updatedColorsAccuracy.sort((a,b)=>b-a);
         await setColorAccuracy([0,0,0,0]);
         await setColorAccuracy(updatedColorsAccuracy);
-        await setIsUserColorsChecked(updatedCheckedColors);
         await updateDataGame(IdRound, fourDecodedColors, colors, updatedColorsAccuracy);
+        await setIsUserColorsChecked(updatedCheckedColors);
         //console.log("tablica sprawdzenia");
        // updatedCheckedColors.map(item => console.log(item));
         //console.log("tabela accuricy");
