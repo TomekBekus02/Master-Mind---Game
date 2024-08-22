@@ -10,56 +10,63 @@ export default function ColorsAccuracy({id}){
         <div className="accuracy-container">
             <div className="row-container">
                 {
+                    //console.log(dataGame[id-1].saved)
+                    //dataGame[id-1].accuracy.map((item, index) => {`typ: ${typeof item}`})
+                        // activationCondition
+                        // ?
+                        //     colorAccuracy.map((item,index) => {
+                        //         switch (item){
+                        //             case 2:
+                        //                 return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
+                        //             case 1:
+                        //                 return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
+                        //             case 0:
+                        //                 return <div key={index} className="accuracy"></div>
+                        //         }
+                        //     })
+                        // :
+                        // dataGame[id-1].saved
+                        // ?
+                        //     dataGame[id-1].accuracy.map((item, index) => {
+                        //         switch (item){
+                        //             case 2:
+                        //                 return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
+                        //             case 1:
+                        //                 return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
+                        //             case 0:
+                        //                 return <div key={index} className="accuracy"></div>
+                        //         }                  
+                        //     })
+                        //     :
+
+
+
+                    //version 2
+                    //console.log(`warunek aktywacji: ${activationCondition} id=${id} == idRound=${IdRound}, item: ${item}`)
                     activationCondition
                     ?
-                    colorAccuracy.map((item,index) => {
-                        switch (item){
-                            case 2:
-                                return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
-                            case 1:
-                                return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
-                            case 0:
-                                return <div key={index} className="accuracy"></div>
-                        }
-                    })
+                        colorAccuracy.map((item,index) => {
+                            switch (item){
+                                case 2:
+                                    return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
+                                case 1:
+                                    return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
+                                case 0:
+                                    return <div key={index} className="accuracy"></div>
+                            }
+                        })
                     :
-                    colorAccuracy.map((item,index) => {
-                        return <div key={index} className="accuracy"></div>     
-                    })
-//console.log(`warunek aktywacji: ${activationCondition} id=${id} == idRound=${IdRound}, item: ${item}`)
-                    // dataGame[id-1].saved
-                    // ?
-                    //     dataGame[id-1].accuracy.map((Aitem,index) => {
-                    //         switch (Aitem){
-                    //             case 2:
-                    //                 return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
-                    //             case 1:
-                    //                 return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
-                    //             case 0:
-                    //                 return <div key={index} className="accuracy"></div>
-                    //         }
+                        dataGame[id-1].accuracy.map((Aitem,index) => {
+                            switch (Aitem){
+                                case 2:
+                                    return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
+                                case 1:
+                                    return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
+                                case 0:
+                                    return <div key={index} className="accuracy"></div>
+                            }
 
-                    //     })
-                    // :
-                    // activationCondition
-                    //     ?
-                    //         colorAccuracy.map((item,index) => {
-                    //             switch (item){
-                    //                 case 2:
-                    //                     return <div key={index} className="accuracy" style={{backgroundColor: 'black'}}></div>
-                    //                 case 1:
-                    //                     return <div key={index} className="accuracy" style={{backgroundColor: 'white'}}></div>
-                    //                 case 0:
-                    //                     return <div key={index} className="accuracy"></div>
-                    //             }
-                    //         })
-                    //     :
-                    //         colorAccuracy.map((item,index) => {
-                    //             return <div key={index} className="accuracy"></div>
-                    //         })
-                        
-
-                    
+                        })
 
                     
                 }

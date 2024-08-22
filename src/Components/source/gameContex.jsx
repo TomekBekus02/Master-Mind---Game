@@ -63,14 +63,14 @@ export const GameProvider = ({children}) => {
             return prevData.map(item =>
                 item.round === IdRound
                 ? {...item, 
-                    saved: true, 
                     accuracy: item.accuracy.map((itemAccuracy, index) =>
-                        colorAccuracy[index]
+                        itemAccuracy === colorAccuracy[index] ? itemAccuracy : colorAccuracy[index]
                     ),
+                    saved: true, 
                     colors: item.colors.map((itemColor, index) => 
                         fourDecodedColors[index] !== undefined
-                    ? colors[fourDecodedColors[index]]
-                    : itemColor 
+                            ? colors[fourDecodedColors[index]]
+                            : itemColor 
                 )}
                 : item
             )
