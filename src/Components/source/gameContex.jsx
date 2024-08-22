@@ -26,7 +26,7 @@ export const GameProvider = ({children}) => {
     const [IdRound, setIdRound] = useState(0); // show and set current round 1-10
     const handleRound = () => setIdRound(prevRound => (prevRound < 10 ? prevRound + 1 : prevRound)); // function that handles rounds
 
-    const [endGame, setEndGame] = useState(true); //value if game has started or finished
+    const [endGame, setEndGame] = useState(false); //value if game has started or finished
     const handleEndGame = () => setEndGame(!endGame); //sets status of the game
 
     const [startGame, setStartGame] = useState(false); //value if game has started or finished
@@ -81,7 +81,7 @@ export const GameProvider = ({children}) => {
             {   
                 handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, setColorAccuracy,
                 setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, setIsUserColorsChecked,
-                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode,       
+                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode, setEndGame,    
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, colorAccuracy, 
                 currentButton, fourDecodedColors, currentIdRow, abledSaveButton, isUserColorsChecked                
             }}>

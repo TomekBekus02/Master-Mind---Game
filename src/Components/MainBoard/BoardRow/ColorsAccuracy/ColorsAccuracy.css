@@ -15,8 +15,8 @@
     row-gap: 2px;
 }
 .accuracy{
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid black;
     background-color: rgba(196, 114, 101, 0.649);

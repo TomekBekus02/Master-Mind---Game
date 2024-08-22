@@ -4,42 +4,46 @@ import './SaveRoundButton.css';
 
 export default function SaveButton(){
     const {setCurrentButton, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, colorAccuracy, setColorAccuracy,
-           setFourDecodedColors, answer, isUserColorsChecked, setIsUserColorsChecked} = useContext(GameContex);
+           setFourDecodedColors, answer, isUserColorsChecked, setIsUserColorsChecked, setEndGame} = useContext(GameContex);
 
     async function handleGameProgress(){
         const updatedCheckedColors = [false, false, false, false];
-        //updatedCheckedColors.map(item => console.log(`${item},`))
+        //console.log(`${updatedCheckedColors.map(item => item)}`);
         const updatedColorsAccuracy = [0,0,0,0];
         let tempAccuracy = 0;
         let tempJ = 4;
-        for(let i = 0; i < 4; i++){
+        //console.log(`AI answer: ${answer.map(item => item)}`);
+        //console.log(`user answer: ${fourDecodedColors.map(item => item)}`);
+        for(let user = 0; user < 4; user++){
             tempAccuracy = 0;
-            tempJ = 4;
-            for(let j = 0; j < 4; j++){
-                if(updatedCheckedColors[j] === false){
+            for(let Ai = 0; Ai < 4; Ai++){
+                if(updatedCheckedColors[Ai] === false && fourDecodedColors[Ai] !== '' && fourDecodedColors[user] == answer[Ai]){
                     //console.log(`[i:${i}][j:${j}] AI: ${answer[i]} user: ${fourDecodedColors[j]}`);
                     //console.log(`false/true == ${updatedCheckedColors[j]}`);
-                    if(fourDecodedColors[j] !== '' && answer[i] == fourDecodedColors[j] && i==j){
-                        tempJ = j;
+                    if(user==Ai){
+                        updatedCheckedColors[tempJ] = true
                         tempAccuracy = 2;
                         //console.log(`2`);
                         break;
                     }
-                    else if(fourDecodedColors[j] !== '' && answer[i] == fourDecodedColors[j]){
+                    else{
                         tempAccuracy = 1;
-                        tempJ = j;
                         //console.log('1'); 
-                    }
+                    }   
                 }
             }
-            updatedColorsAccuracy[i] = tempAccuracy;  
-            tempJ !== 4 ? updatedCheckedColors[tempJ] = true : null
+            updatedColorsAccuracy[user] = tempAccuracy;  
         }
         updatedColorsAccuracy.sort((a,b)=>b-a);
         await setColorAccuracy([0,0,0,0]);
         await setColorAccuracy(updatedColorsAccuracy);
         await updateDataGame(IdRound, fourDecodedColors, colors, updatedColorsAccuracy);
         await setIsUserColorsChecked(updatedCheckedColors);
+        if(updatedColorsAccuracy.every(item => item == 2)){
+            alert("You win!!");
+            setEndGame(true);
+        }
+            
         //console.log("tablica sprawdzenia");
        // updatedCheckedColors.map(item => console.log(item));
         //console.log("tabela accuricy");
