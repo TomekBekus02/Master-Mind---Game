@@ -4,7 +4,7 @@ import './RestartButton.css'
 import data from '../../../source/data'
 
 export default function RestartButton(){
-    const {addAnswer, handleEndGame, setIdRound, setDataGame, colors, 
+    const {addAnswer, handleEndGame, setIdRound, setDataGame, colors,setEndGame,
            setAnswer, startGame, setActiveDecode, setFourDecodedColors, setCurrentButton} = useContext(GameContex);
     const randomNumber = () => {return Math.floor(Math.random() * colors.length)};
 
@@ -20,6 +20,7 @@ export default function RestartButton(){
     async function restartingGame(){
         setIdRound(1);
         setAnswer([]);
+        setEndGame(false);
         setFourDecodedColors(['','','','']);
         setCurrentButton(0);
         await gameLaunching();
