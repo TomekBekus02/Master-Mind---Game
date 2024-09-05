@@ -9,11 +9,9 @@ export default function RestartButton(){
     const randomNumber = () => {return Math.floor(Math.random() * colors.length)};
 
     async function gameLaunching() {
-        const newAnswers = [];
         for (let i = 0; i < 4; i++) {
-            newAnswers.push(randomNumber());
+            addAnswer(randomNumber())
         }
-        newAnswers.forEach(answer => addAnswer(answer));
         setDataGame(data);
         return 0;
     }

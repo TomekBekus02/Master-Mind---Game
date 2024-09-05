@@ -9,7 +9,7 @@ export default function ColorButton({id, buttonNr}){
     // const [buttonClicked, setButtonClicked] = useState(false);
     // const [currentButton, setCurrentButton] = useState(0);
 
-    const handleColorsDecode = async(buttonNr, id) => {
+    const handleColorsDecode = (buttonNr, id) => {
         handleActiveDecode(true);
         setCurrentButton(buttonNr);
         setcurrentIdRow(id);

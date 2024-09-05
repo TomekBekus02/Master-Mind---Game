@@ -3,9 +3,13 @@ import { GameContex } from "../../source/gameContex"
 import './PossibleColors.css'
 
 export default function PossibleColors(){
-    const {colors, updatefourDecodedColors, currentButton} = useContext(GameContex);
-    const handlePossibleColors = async(currentButton, index) => {
-       await updatefourDecodedColors(currentButton, index);
+    const {colors, updatefourDecodedColors, currentButton, setCurrentButton} = useContext(GameContex);
+
+    const handlePossibleColors = (currentButton, index) => {
+       updatefourDecodedColors(currentButton, index);
+       console.log(`przed aktywacja ${currentButton}`);
+       setCurrentButton(prevButton => (prevButton < 3 ? prevButton + 1 : prevButton));
+       console.log(`po aktywacji ${currentButton}`);
     }
     return(
         <>

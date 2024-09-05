@@ -7,11 +7,12 @@ export default function StartButton(){
     const randomNumber = () => {return Math.floor(Math.random() * colors.length)};
 
     function gameLaunching() {
-        const newAnswers = [];
+        //const newAnswers = [];
         for (let i = 0; i < 4; i++) {
-            newAnswers.push(randomNumber());
+            //newAnswers.push(randomNumber());
+            addAnswer(randomNumber())
         }
-        newAnswers.forEach(answer => addAnswer(answer));
+        //newAnswers.forEach(answer => addAnswer(answer));
         handleRound(); 
         handleStartGame();
     }

@@ -17,7 +17,7 @@
     cursor: not-allowed;
 }
 .active-button{
-    background-color: rgba(168, 98, 87, 0.786);
+    background-color: rgba(168, 77, 64, 0.821);
     animation: blinking 1s infinite alternate; 
 
 }

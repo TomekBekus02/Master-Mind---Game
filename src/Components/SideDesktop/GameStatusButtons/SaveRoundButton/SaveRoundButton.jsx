@@ -9,12 +9,12 @@ export default function SaveButton(){
     async function handleGameProgress(){
         const updatedCheckedColors = [false, false, false, false];
         const updatePossibleUserCheckedColors = [false, false, false, false];
-        console.log(`${updatedCheckedColors.map(item => item)}`);
+            console.log(`${updatedCheckedColors.map(item => item)}`);
         const updatedColorsAccuracy = [0,0,0,0];
         let tempAccuracy = 0;
         let tempAi = 4;
-        console.log(`AI answer: ${answer.map(item => item)}`);
-        console.log(`user answer: ${fourDecodedColors.map(item => item)}`);
+            console.log(`AI answer: ${answer.map(item => item)}`);
+            console.log(`user answer: ${fourDecodedColors.map(item => item)}`);
         for(let user = 0; user < 4; user++){
             tempAccuracy = 0;
             tempAi = 4;
@@ -28,6 +28,7 @@ export default function SaveButton(){
                     if(user===Ai){
                         updatedCheckedColors[Ai] = true;
                         tempAccuracy = 2;
+                        tempAi = 4;
                         console.log(`2`);
                         break;
                     }
@@ -39,20 +40,20 @@ export default function SaveButton(){
                             updatedColorsAccuracy[Ai] = 2;
                             console.log(`2`);
                             tempAccuracy = 0;
-                            continue;
+                            tempAi = 4;
+                            Ai=-1;
                         }
                         else if(tempAi===4){
                             tempAccuracy = 1;
                             tempAi=Ai;
                             console.log('1'); 
                         }
-
                     }   
                 }
             }
             updatedColorsAccuracy[user] = tempAccuracy;
             console.log(`user answer: ${updatedColorsAccuracy.map(item => item)}`);
-            tempAi !== 4 ? updatedCheckedColors[tempAi] = true : null;
+            tempAi !== 4 ? updatedCheckedColors[tempAi] = true : console.log('0');;
         }
         updatedColorsAccuracy.sort((a,b)=>b-a);
         await setColorAccuracy([0,0,0,0]);
