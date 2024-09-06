@@ -14,7 +14,7 @@ export default function BotAnswer()
             </div>
             <div className="codedColorsContainer">
                 {
-                    !endGame
+                    endGame
                     ?
                         answer.map((colorNumber, index) => (
                             <div key={index} className="color-result" style={{backgroundColor: colors[colorNumber]}}></div>

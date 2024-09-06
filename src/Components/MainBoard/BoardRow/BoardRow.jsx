@@ -8,11 +8,11 @@ import './BoardRow.css'
 
 
 export default function BoardRow({id}){
-    const {dataGame, IdRound} = useContext(GameContex);
+    const {endGame, IdRound} = useContext(GameContex);
 
     return (
         <div 
-        className={`RowContainer ${id==IdRound && IdRound != 0 ? 'active' : null}`}>
+        className={`RowContainer ${id==IdRound && IdRound != 0 && !endGame ? 'active' : null}`}>
             <ColorsAccuracy id={id}/>
             <ColorsDecode id={id}/>
         </div>

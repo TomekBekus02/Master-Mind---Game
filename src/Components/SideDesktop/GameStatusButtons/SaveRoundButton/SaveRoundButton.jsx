@@ -4,7 +4,7 @@ import './SaveRoundButton.css';
 
 export default function SaveButton(){
     const {setCurrentButton, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, colorAccuracy, setColorAccuracy,
-           setFourDecodedColors, answer, isUserColorsChecked, setIsUserColorsChecked, setEndGame} = useContext(GameContex);
+           setFourDecodedColors, answer, isUserColorsChecked, currentIdRow, setIsUserColorsChecked, setEndGame} = useContext(GameContex);
 
     async function handleGameProgress(){
         const updatedCheckedColors = [false, false, false, false];
@@ -60,7 +60,8 @@ export default function SaveButton(){
         await setColorAccuracy(updatedColorsAccuracy);
         await updateDataGame(IdRound, fourDecodedColors, colors, updatedColorsAccuracy);
         await setIsUserColorsChecked(updatedCheckedColors);
-        if(updatedColorsAccuracy.every(item => item == 2)){
+
+        if(updatedColorsAccuracy.every(item => item == 2) || currentIdRow === 12){
             alert("You win!!");
             setEndGame(true);
         }
