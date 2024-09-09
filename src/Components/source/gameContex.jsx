@@ -4,11 +4,11 @@ import data from '../source/data'
 export const GameContex = createContext();
 
 export const GameProvider = ({children}) => {
-    const [dataGame, setDataGame] = useState(data); // dataGame from data.js
+    const [dataGame, setDataGame] = useState(data); 
 
-    const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; // possible colors in this game
+    const colors = ['red', 'blue', 'green', 'yellow', 'black', 'white']; 
 
-    const [fourDecodedColors, setFourDecodedColors] = useState(['','','','']); // array for 4 choosen colors to update in data
+    const [fourDecodedColors, setFourDecodedColors] = useState(['','','','']); 
     const updatefourDecodedColors = (colorIndex, newColor) => {
         setFourDecodedColors(prevColors => {
             const newArrayColor = [...prevColors];
@@ -17,48 +17,29 @@ export const GameProvider = ({children}) => {
         })
     };
 
-    const [currentButton, setCurrentButton] = useState(0); //current color Decode to sets value from pool of colors
-    const [currentIdRow, setcurrentIdRow] = useState(1); //current row to sets value for full colors row
+    const [currentButton, setCurrentButton] = useState(0); 
+    const [currentIdRow, setcurrentIdRow] = useState(1); 
 
-    const [activeDecode, setActiveDecode] = useState(false); // shows container with possible colors to decode
+    const [activeDecode, setActiveDecode] = useState(false); 
     const handleActiveDecode = (condition) => setActiveDecode(condition); 
 
-    const [IdRound, setIdRound] = useState(0); // show and set current round 1-10
-    const handleRound = () => setIdRound(prevRound => (prevRound < 10 ? prevRound + 1 : prevRound)); // function that handles rounds
+    const [IdRound, setIdRound] = useState(0); 
+    const handleRound = () => setIdRound(prevRound => (prevRound < 10 ? prevRound + 1 : prevRound)); 
+    const [endGame, setEndGame] = useState(false); 
+    const handleEndGame = () => setEndGame(!endGame); 
 
-    const [endGame, setEndGame] = useState(false); //value if game has started or finished
-    const handleEndGame = () => setEndGame(!endGame); //sets status of the game
+    const [startGame, setStartGame] = useState(false); 
+    const handleStartGame = () => setStartGame(!startGame); 
 
-    const [startGame, setStartGame] = useState(false); //value if game has started or finished
-    const handleStartGame = () => setStartGame(!startGame); //sets status of the game
+    const [answer, setAnswer] = useState([]); 
+    const addAnswer = newAnswer => setAnswer(prevAnswers => [...prevAnswers, newAnswer]); 
 
-    const [answer, setAnswer] = useState([]); // array of 4 generated colors to decode
-    const addAnswer = newAnswer => setAnswer(prevAnswers => [...prevAnswers, newAnswer]); // adding colors to array
-
-    const [abledSaveButton, setAbledSaveButton] = useState(false);
-
-    const [isUserColorsChecked, setIsUserColorsChecked] = useState([false, false, false, false]); // helps checking user and coded answer
-    // const handleUserColorsChecked = (index) => {
-    //     setIsUserColorsChecked(prevchecked => {
-    //         const newArrayCheckedColor = [...prevchecked];
-    //         newArrayCheckedColor[index] = true;
-    //         return newArrayCheckedColor;
-    //     })
-    // }
+    const [isUserColorsChecked, setIsUserColorsChecked] = useState([false, false, false, false]); 
         
-    //0 - wrong color && place || 1 - correct color but wrong place || 2 - correct color && correct place
     const [colorAccuracy, setColorAccuracy] = useState([0,0,0,0]); 
-    // const handleColorAccuracy = (AccuracyNumber) => {
-    //     setColorAccuracy(preColorAccuracy => {
-    //         const Arrayaccuracy = [...preColorAccuracy]; 
-    //         Arrayaccuracy.push(AccuracyNumber); // 0/1/2
-    //         Arrayaccuracy.sort((a, b) => b-a); // sorting 2 --> 0
-    //         return Arrayaccuracy;
-    //     })
-    // }
-    
+    const [abledSaveButton, setAbledSaveButton] = useState(false); 
 
-    const updateDataGame = (IdRound, fourDecodedColors, colors, colorAccuracy ) => {//updates Data Game in data.js file
+    const updateDataGame = (IdRound, fourDecodedColors, colors, colorAccuracy ) => {
          setDataGame(prevData => {
             return prevData.map(item =>
                 item.round === IdRound
@@ -81,7 +62,7 @@ export const GameProvider = ({children}) => {
             {   
                 handleRound, handleStartGame, handleEndGame, handleActiveDecode, addAnswer, setColorAccuracy,
                 setFourDecodedColors, setCurrentButton, setIdRound, setAnswer, updatefourDecodedColors, setIsUserColorsChecked,
-                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode, setEndGame,    
+                setcurrentIdRow, setAbledSaveButton, updateDataGame, setDataGame, setActiveDecode, setEndGame,   
                 IdRound, colors, dataGame, answer, endGame, startGame, activeDecode, colorAccuracy, 
                 currentButton, fourDecodedColors, currentIdRow, abledSaveButton, isUserColorsChecked                
             }}>
