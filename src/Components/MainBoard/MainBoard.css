@@ -6,7 +6,7 @@
     height: 100%;
 }
 .board{
-    width: 55%;
+    width: 535px;
     height: 90%;
     background-color: rgba(157, 51, 34, 0.649);
     padding: 10px;
@@ -17,7 +17,6 @@
     display: grid;
     align-items: center;
     flex-direction: column;
-    height: 100%;
     width: 90%;
     margin: auto;
 }
