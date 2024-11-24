@@ -3,7 +3,7 @@ import { GameContex } from "../../source/gameContex"
 import './PossibleColors.css'
 
 export default function PossibleColors(){
-    const {colors, updatefourDecodedColors, currentButton, setCurrentButton} = useContext(GameContex);
+    const {colors, updatefourDecodedColors, currentButton, setCurrentButton, endGame} = useContext(GameContex);
 
     const handlePossibleColors = (currentButton, index) => {
        updatefourDecodedColors(currentButton, index);
@@ -19,6 +19,7 @@ export default function PossibleColors(){
                             key={index} 
                             className="colors-pool" 
                             style={{backgroundColor: colors[index]}}
+                            disabled={endGame}
                             onClick={() => handlePossibleColors(currentButton, index)}
                         ></button>
                     ))
