@@ -7,9 +7,7 @@ export default function PossibleColors(){
 
     const handlePossibleColors = (currentButton, index) => {
        updatefourDecodedColors(currentButton, index);
-       console.log(`przed aktywacja ${currentButton}`);
        setCurrentButton(prevButton => (prevButton < 3 ? prevButton + 1 : prevButton));
-       console.log(`po aktywacji ${currentButton}`);
     }
     return(
         <>

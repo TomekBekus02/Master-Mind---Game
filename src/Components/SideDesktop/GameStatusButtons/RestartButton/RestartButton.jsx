@@ -8,20 +8,20 @@ export default function RestartButton(){
            setAnswer, startGame, setActiveDecode, setFourDecodedColors, setCurrentButton} = useContext(GameContex);
     const randomNumber = () => {return Math.floor(Math.random() * colors.length)};
 
-    async function gameLaunching() {
+    function gameLaunching() {
         for (let i = 0; i < 4; i++) {
             addAnswer(randomNumber())
         }
         setDataGame(data);
         return 0;
     }
-    async function restartingGame(){
+    function restartingGame(){
         setIdRound(1);
         setAnswer([]);
         setEndGame(false);
         setFourDecodedColors(['','','','']);
         setCurrentButton(0);
-        await gameLaunching();
+        gameLaunching();
         setActiveDecode(false);
     }
     return (

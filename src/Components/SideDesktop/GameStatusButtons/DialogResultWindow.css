@@ -1,0 +1,22 @@
+.dialog-window{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    border: none;
+    background-color: #cca984;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 28px;
+    color: #e3dad0;
+}
+.container-color-result{
+    background-color: #eacebb;
+    border-radius: 50px;
+    display: flex;
+}
+.dialog-window h3{
+    margin: 10px 0;
+    color: #645b52;
+}

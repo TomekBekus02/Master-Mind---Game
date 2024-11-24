@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { forwardRef, useContext } from 'react';
 import { GameContex } from '../../../source/gameContex';
 import './SaveRoundButton.css';
 
-export default function SaveButton(){
-    const {setCurrentButton, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, colorAccuracy, setColorAccuracy,
-           setFourDecodedColors, answer, isUserColorsChecked, currentIdRow, setIsUserColorsChecked, setEndGame, abledSaveButton} = useContext(GameContex);
+const SaveButton = forwardRef(function SaveButton({setGameResult}, ref){
+    const {setCurrentButton, updateDataGame, IdRound, fourDecodedColors, handleRound, colors, setColorAccuracy, setFourDecodedColors, 
+            answer, setIsUserColorsChecked,  abledSaveButton, setEndGame} = useContext(GameContex);
 
     function handleGameProgress(){
         const updatedCheckedColors = [false, false, false, false];
@@ -44,16 +44,22 @@ export default function SaveButton(){
                 }
             }
             updatedColorsAccuracy[user] = tempAccuracy;
-            tempAi !== 4 ? updatedCheckedColors[tempAi] = true : console.log('0');;
+            tempAi !== 4 ? updatedCheckedColors[tempAi] = true : null;
         }
         updatedColorsAccuracy.sort((a,b)=>b-a);
         setColorAccuracy([0,0,0,0]);
         setColorAccuracy(updatedColorsAccuracy);
         updateDataGame(IdRound, fourDecodedColors, colors, updatedColorsAccuracy);
         setIsUserColorsChecked(updatedCheckedColors);
-
-        if(updatedColorsAccuracy.every(item => item == 2) || currentIdRow === 12){
-            alert("You won!!");
+        console.log(IdRound);
+        if(updatedColorsAccuracy.every(item => item == 2)){
+            setGameResult(true);
+            ref.current.showModal();
+            setEndGame(true);
+        }
+        else if(IdRound === 10){
+            setGameResult(false);
+            ref.current.showModal();
             setEndGame(true);
         }
     }
@@ -70,4 +76,5 @@ export default function SaveButton(){
             onClick={() => handeSaveRound()}
         >Save round</button>
     )
-}
+})
+export default SaveButton
