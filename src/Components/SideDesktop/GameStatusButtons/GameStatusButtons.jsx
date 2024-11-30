@@ -4,6 +4,8 @@ import SaveRoundButton from './SaveRoundButton/SaveRoundButton'
 import './GameStatusButtons.css'
 import { useRef, useState } from 'react'
 import DialogWindow from './DialogResultWindow'
+import likeIMG from '../../../assets/like.png'
+import unLikeIMG from '../../../assets/unlike.png'
 
 
 export default function GameStatusButtons(){
@@ -20,7 +22,12 @@ export default function GameStatusButtons(){
             <div className="saveRoundContainer">
                 <SaveRoundButton setGameResult={setGameResult} ref={dialogWindowRef}/>
             </div>
-            <DialogWindow ref={dialogWindowRef} result={gameResult ? 'Victory!' : 'Game Over!'}/>
+            <DialogWindow 
+                ref={dialogWindowRef} 
+                resultInfo={gameResult ? 'Victory!' : 'Game Over!'}
+                gameReslut={gameResult}
+                img={gameResult ? likeIMG : unLikeIMG}
+            />
         </div>
     )
 }

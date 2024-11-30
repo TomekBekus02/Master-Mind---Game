@@ -3,13 +3,14 @@ import { GameContex } from "../../source/gameContex";
 import RestartButton from './RestartButton/RestartButton'
 import './DialogResultWindow.css'
 
-const DialogWindow = forwardRef(function DialogWindow({result}, ref){
+const DialogWindow = forwardRef(function DialogWindow({gameReslut, resultInfo, img}, ref){
     const {colors, answer, IdRound} = useContext(GameContex);
 
     return (
         <dialog ref={ref} className="dialog-window">
-            <h1>{result}</h1>
-            {!result ? <h3>You finished game at {IdRound-1} round</h3> : null}
+            <h1>{resultInfo}</h1>
+            <img src={img} alt="result" width={150}/>
+            {gameReslut ? <h3>You finished game at {IdRound-1} round</h3> : null}
             <h3>Coded Colors</h3>
             <div className="container-color-result">
             {
