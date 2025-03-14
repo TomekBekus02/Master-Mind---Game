@@ -9,7 +9,7 @@
 
 3. To start the game, click "Start Game", then select one of the four slots in the first row of the board. When the "Pool Colors" box appears, choose one of the six available colors. The selected color will then appear in the highlighted slot on the board.
 
-4. The "Save Round" button remains disabled until all colors have been entered.
+4. The "Save Round" button remains disabled until all colors in a row have been entered.
     
 
 **HOW TO RUN THIS APP:**
